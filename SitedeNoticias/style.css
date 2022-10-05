@@ -7,8 +7,11 @@
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100vw;
+}
+
 body {
-    width: 100%;
     font-family: 'Poppins', sans-serif;
     background: rgba(255, 241, 235, 1.0);
     background: linear-gradient(to bottom right, rgba(255, 241, 235, 1.0), rgba(113, 160, 252, 1.0));
@@ -25,6 +28,8 @@ body {
 /*CABEÇALHO*/
 
 header {
+    position: fixed;
+    height: 9rem;
     background-color: #91b9bdde;
     width: 100%;
     display: flex;
@@ -127,6 +132,7 @@ nav ul li:hover {
 /*CORPO*/
 
 main {
+    padding-top: 9rem;
     display: flex;
     flex-direction: column;
     align-items: center;
