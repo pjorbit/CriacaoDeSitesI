@@ -18,27 +18,31 @@ body {
 }
 
 .container {
+    display: grid;
     width: 100vw;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    height: 100vh;
+    grid-template-areas: 
+        "header header header header"
+        "main main main aside"
+        "main main main aside"
+        "main main main aside"
+        "main main main aside"
+        "main main main aside"
+        "footer footer footer footer"
+    ;
+    grid-template-rows: 140px auto auto auto 230px;
+    gap: 10px;
 }
 
-/*CABEÇALHO*/
-
 header {
-    position: fixed;
-    left: 0;
-    z-index: 99;
-    height: 9rem;
-    background-color: #91b9bdde;
+    grid-area: header;
+    height: 100%;
     width: 100%;
+    background-color: #dce4e5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-bottom: 5px solid #ccc;
 }
 
 .header-top {
@@ -60,6 +64,10 @@ header {
 
 .header-top_logo h1, img {
     cursor: pointer;
+}
+.header-top_logo img{
+    height: 100px;
+    width: 100px;
 }
 
 .header-top_search input {
@@ -131,60 +139,86 @@ nav ul li:hover {
     transform: scale(1.1);
 }
 
-/*CORPO*/
+/*-----------------------------------------------------------------------*/
 
 main {
-    padding-top: 9rem;
+    grid-area: main;
+    background-color: antiquewhite;
+}
+
+/*-----------------------------------------------------------------------*/
+
+aside {
+    background-color: #B4DDE3;
+    grid-area: aside;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    margin-bottom: 2rem;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 
-.main-dados {
+.aside-titulo{
+    font-size: 1.3rem;
+}
+
+#aside-lista {
+    height: 280px;
+}
+
+#aside-lista ul{
+    display: flex;
+    flex-direction: row;
+}
+
+#aside-lista ul li{
+    list-style-type: none;
+}
+
+.aside-lista_produto {
+    height: 230px;
+    width: 200px;
+    margin: 5px;
+    background-color: #dce4e5;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    width: 130%;
-    height: 11rem;
-    margin-top: 2rem;
-}
-
-.main-dados h1 {
-    font-size: 2.5rem;
-}
-
-.main-dados-autor {
-    display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-evenly;
 }
 
-.main-dados-autor img {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-right: 1rem;
+.aside-lista_produto img{
+    border-radius: 8px;
+    height: 70%;
+    width: 80%;
 }
 
-article {
-    width: 100%;
-    color: #324B4E;
+.aside-lista_produto p{
+    font-weight: 600;
+    text-align: center;
 }
 
-article img, h2, p {
-    margin-top: 2rem;
-    width: 100%;
+#aside-lista-parceiros {
+    height: 160px;
 }
 
+#aside-lista-parceiros ul li{
+    list-style-type: none;
+}
 
-/*RODAPÉ*/
+#aside-lista-parceiros ul li a{
+    text-decoration: none;
+    color: #292929;
+}
+
+/*-----------------------------------------------------------------------*/
 
 footer {
+    grid-area: footer;
     box-sizing: border-box;
     width: 100%;
-    height: 250px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -195,6 +229,7 @@ footer {
 
 .footer-infos {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -282,49 +317,3 @@ footer {
     width: 100%;
     color: #324B4E;
 }
-
-/*RESPONSIVIDADE*/
-/*
-@media screen and (min-width: 400px) {
-    
-    header {
-        height: 25%;
-        gap: .8rem;
-    }
-    .header-top {
-        flex-direction: column;
-        justify-content: space-evenly;
-        gap: 0.5rem;
-    }
-    .header-top_logo {
-        font-size: .8rem;
-        gap: 3rem;
-    }
-    .header-top_logo img {
-        width: 20%;
-    }
-    .header-top_search input {
-        font-size: 0.5rem;
-        width: 300px;
-        padding: 0.4rem;
-    }
-    .header-top_submite p {
-        font-size: .7rem;
-    }
-    .header-top_submite button {
-        font-size: .7rem;
-        padding: 0.4rem;
-    }
-    nav {
-        width: 100%;
-        margin-bottom: 0.3rem;
-        font-size: 0.6rem;
-    }
-    nav ul {
-        justify-content: space-evenly;
-    }
-    nav ul li {
-        margin-right: 1.5rem;
-    }
-}
-*/
